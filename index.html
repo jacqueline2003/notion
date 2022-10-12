@@ -1,0 +1,171 @@
+<!DOCTYPEhtml >
+< html  lang =" es " >
+< cabeza >
+    < juego de caracteres meta  =" UTF-8 " >
+    < meta  name =" viewport " content =" ancho=ancho-del-dispositivo, escala-inicial=1.0 " >
+    < título > Saludos </ título >
+
+    < estilo >
+
+
+        cuerpo {
+            font-variant-caps : todo-mayúsculas-pequeñas;
+
+
+        }
+
+        . widget {
+            relleno :  5 px  5 px ;
+            color :  # 000000 ;
+            pantalla : flexible;
+            justificar-contenido : centro;
+            alinear elementos : centro;
+            dirección de flexión : columna;
+            ancho máximo :  95 % ;
+            margen : automático;
+            borde :  3 px sólido # 000000 ;
+            borde-radio :  5 px ;
+            sombra de caja :  2 px  2 px  1 px  0 px  # 000000 ;
+
+        }
+
+           
+        . saludar {
+            tamaño de fuente :  3 em ;
+        }
+
+        . fecha {
+      
+            familia de fuentes : monoespaciado;
+            tamaño de fuente :  2 em ;
+        }
+
+        . reloj {
+            familia de fuentes : monoespaciado;
+            tamaño de fuente :  2 em ;
+        }
+
+        . tiempo {
+            pantalla : bloque en línea;
+            ancho mínimo :  20 px ;
+        }
+
+        . dos puntos {
+            tamaño de fuente :  1 em ;
+            pantalla : bloque en línea;
+        }
+
+     
+
+
+
+
+    </ estilo >
+</ cabeza >
+< cuerpo >
+
+
+
+
+< div  clase =" contenedor> " >
+    < clase div  =" widget " >
+
+            < div  class =" saludar " id =" saludar " > </ div >
+
+                < div  clase =" fecha " id =" fecha " > </ div >
+                < div  clase =" reloj " >
+                    < div  clase =" hora " id =" hora " > </ div >
+                    < div  clase =" dos puntos " > : </ div >
+                    < div  clase =" tiempo " id =" min " > </ div >
+                    < div  clase =" dos puntos " > : </ div >
+                    < div  clase =" tiempo " id =" segundo " > </ div >
+                </ div >
+           
+
+        
+
+    </ div >
+</ div >
+        
+
+
+
+< guión >
+
+función  mostrarSaludos ( hoy ) {
+        horas  =  hoy . obtenerHoras ( ) ;
+        nombre = "Jacqueline"
+        si  ( horas  <  12 )
+            saludar  =  'Buenos días' + nombre ;
+        si  no  ( horas  >=  12  &&  horas  <=  17 )
+            saludar  =  'Buenas tardes' + nombre ;
+        si  no  ( horas  >=  17  &&  horas  <=  24 )
+            saludar  =  'Buenas noches' + nombre ;
+        documento _ getElementById ( 'saludar' ) . HTML interno  =  saludar ;
+
+    }
+
+    función  mostrar Fecha ( hoy )  {  
+       
+        const  dias  =  [ 'Domingo' ,  'Lunes' ,  'Martes' ,  'Miercoles' ,  'Jueves' ,  'Viernes' ,  'Sabado' ] ;
+        const  nombresMes  =  [ "Enero" ,  "Febrero" ,  "Marzo" ,  "Abril" ,  "Mayo" ,  "Junio" ,
+  "Julio" ,  "Agosto" ,  "Septiembre" ,  "Octubre" ,  "Noviembre" ,  "Diciembre"
+] ;
+
+        var  dayName  =  días [ hoy . obtenerDía ( ) ] ;
+        var  nombreMes  =  nombresMes [ hoy . obtenerMes ( ) ] ;
+        var  fecha  =  hoy . obtenerFecha ( ) ;
+        var  año  =  hoy . obtenerAñoCompleto ( ) ;
+        documento _ getElementById ( 'fecha' ) . HTML interno  = nombre del día + ", " + nombre del mes + " " + fecha + " " + año ;
+
+    }
+
+
+    función  mostrarReloj ( hoy )  {
+
+        var  hora  =  padZeros ( doceHoras ( hoy.obtenerHoras ( ) ) ) ; _ _
+        var  minutos  =  padZeros ( hoy . getMinutes ( ) ) ;
+        var  segundos  =  padZeros ( hoy . getSeconds ( ) ) ;
+       
+        if ( hoy . obtener Horas ( )  >= 12 ) {
+            segundos += "pm"
+        }
+        más {
+            segundos += "am"
+        }
+       
+        documento _ getElementById ( 'hora' ) . HTML interno  =  hora ;
+        documento _ getElementById ( 'min' ) . HTML interno  =  minutos ;
+        documento _ getElementById ( 'seg' ) . HTML interno  =  segundos ;
+    }
+
+    función  doce horas ( hora )  {
+        si  ( hora  >  12 )  {
+             hora de  regreso -=  12
+        }  más  si  ( hora  ===  0 )  {
+             hora de  regreso =  12 ;
+        }  más  {
+             hora de regreso
+        }
+    }
+    función  padZeros ( num )  {
+        si  ( número  <  10 )  {
+            número  =  '0'  +  número
+        } ;
+         número de retorno ;
+    }
+
+    function  mostrarWidget ( )  {
+        var  hoy  =  nueva  fecha ( ) ;
+        dispalyGreetings ( hoy ) ;
+        fecha de visualización ( hoy ) ;
+        dispalyClock ( hoy ) ;
+        setTimeout ( dispalyWidget ,  500 ) ;
+    }
+
+    Widget de visualización ( )
+
+</ guión >
+
+</ cuerpo >
+</ html >
